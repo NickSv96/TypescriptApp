@@ -14,7 +14,7 @@ const Contador = () => {
         }
     }
   return (
-    <View style={style.containter}>
+    <View style={style.container}>
         <Text style={style.title}>Contador con botones</Text>
         <Text style={style.text}>{contador}</Text>
         <View style={style.buttons}>
@@ -31,14 +31,14 @@ const Contador = () => {
 }
 
 const style = StyleSheet.create({
-    containter:{
+    container:{
         width: '100%',
         padding: 20,
         alignItems: "center",
     },
     title: {
-        width: 600,
-        fontSize: 50,
+        width: 300,
+        fontSize: 30,
     },
     text: {
         width: 200,

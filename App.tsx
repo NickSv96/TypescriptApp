@@ -1,9 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import Contador from './src/components/Contador/Contador';
 export default function App() {
   return (
     <View style={styles.container}>
+      <Text>Taskflow</Text>
+      <Text>Checkpiont 1: Estructura base</Text>
       <Contador/>
       <StatusBar style="auto" />
     </View>
@@ -13,7 +15,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#53c3d4',
     alignItems: 'center',
     justifyContent: 'center',
   },
