@@ -21,7 +21,7 @@ function ProfileScreen() {
           />
           <ProfileCard
           name="Facu Lacerna"
-          role="Gei"
+          role="Minecraft player"
           image="https://i.pravatar.cc/150?img=70"
           isActive= {true}
           />
