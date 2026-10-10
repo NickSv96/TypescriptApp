@@ -1,10 +1,10 @@
 import { Text, View, StyleSheet } from "react-native"
-import ProfileScreen from "../ProfileScreen/ProfileScreen"
+import TaskForm from "../../components/TaskForm/TaskForm"
 
 function HomeScreen() {
     return (
         <View>
-
+            <TaskForm />
         </View>
     )
 }

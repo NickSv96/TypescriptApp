@@ -1,6 +1,6 @@
 # 📱 App React Native con Expo:
 
-Esta es una aplicación básica desarrollada con **React Native** y **Expo**, estructurada con un único componente principal que muestra el título del proyecto y un contador como muestra de inicio de la app.
+Esta es una aplicación básica desarrollada con **React Native** y **Expo**, estructurada con una pagina principal que muestra el título "Profiles" y una serie de tarjetas con detalles de los perfiles y su estado como muestra de inicio de la app, el componente contador queda fuera del funcionamiento de momento.
 
 ---
 

@@ -2,16 +2,16 @@ import React from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
 import COLORS from '../../constans/theme'
 type Props = {
-    name: string;
-    role: string;
-    image: string;
-    isActive: boolean;
+  name: string;
+  role: string;
+  image: string;
+  isActive?: boolean;
 }
-function ProfileCard({name, role, image, isActive} : Props) {
+function ProfileCard({ name, role, image, isActive }: Props) {
 
   return (
     <View style={style.card}>
-      <Image source={{uri:image}} style={style.avatar}/>
+      <Image source={{ uri: image }} style={style.avatar} />
       <View style={style.info}>
         <Text style={style.name}>{name}</Text>
         <Text style={style.role}>{role}</Text>
