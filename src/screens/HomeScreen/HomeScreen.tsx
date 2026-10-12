@@ -4,7 +4,7 @@ import TaskForm from "../../components/TaskForm/TaskForm"
 function HomeScreen() {
     return (
         <View>
-            <TaskForm />
+
         </View>
     )
 }

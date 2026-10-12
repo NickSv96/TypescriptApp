@@ -33,7 +33,7 @@ export default function TaskForm() {
 
     const titleError = touchedTitle && title.trim().length < 5
     const descriptionError = touchedDescription && description.trim().length < 10
-
+    const formError = title.trim().length < 5 || description.trim().length < 10;
     return (
         <KeyboardAvoidingView style={styles.container}>
             <Text style={styles.title}>Nueva Tarea</Text>
@@ -63,9 +63,11 @@ export default function TaskForm() {
                 multiline
             />
 
-            {descriptionError && (
-                <Text style={styles.error}>La descripción debe tener al menos 10 caracteres.</Text>
-            )}
+            {
+                descriptionError && (
+                    <Text style={styles.error}>La descripción debe tener al menos 10 caracteres.</Text>
+                )
+            }
             <Text style={styles.label}>Categoría</Text>
 
             <View style={styles.categories}>
@@ -82,11 +84,15 @@ export default function TaskForm() {
                         <Text>{item}</Text>
                     </TouchableOpacity>
                 ))}
-            </View>
 
+            </View>
+            {
+
+            }
             <TouchableOpacity
-                style={styles.button}
+                style={[styles.button, formError && styles.disableButton]}
                 onPress={handleAddTask}
+                disabled={formError}
             >
                 <Text style={styles.buttonText}>Guardar</Text>
             </TouchableOpacity>
@@ -156,4 +162,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
     },
+    disableButton: {
+        backgroundColor: 'gray',
+    }
 });
