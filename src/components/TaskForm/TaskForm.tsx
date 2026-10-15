@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Alert, KeyboardAvoidingView, TextInput } from 'react-native'
+import COLORS from '../../constans/theme';
 
 export default function TaskForm() {
     const [title, setTitle] = useState("");
@@ -12,7 +13,7 @@ export default function TaskForm() {
     const handleAddTask = () => {
         setTouchedTitle(true)
         setTouchedDescription(true)
-        if (title.trim().length < 5 || description.trim().length < 10) {
+        if (title.trim().length < 3 || description.trim().length < 10) {
             return;
         }
         const task = {
@@ -31,71 +32,73 @@ export default function TaskForm() {
         setTouchedTitle(false)
     }
 
-    const titleError = touchedTitle && title.trim().length < 5
+    const titleError = touchedTitle && title.trim().length < 3
     const descriptionError = touchedDescription && description.trim().length < 10
     const formError = title.trim().length < 5 || description.trim().length < 10;
     return (
-        <KeyboardAvoidingView style={styles.container}>
+        <KeyboardAvoidingView >
             <Text style={styles.title}>Nueva Tarea</Text>
-            <Text style={styles.label}>Titulo</Text>
-            <TextInput style={[styles.input, titleError && styles.errorInput]}
-                placeholder='Titulo de la tarea'
-                value={title}
-                onChangeText={setTitle}
-                onBlur={() => setTouchedTitle(true)}
-                autoCapitalize='sentences'
-                returnKeyType='next'
-            />
-            {
-                titleError && (
-                    <Text style={styles.error}>El titulo debe tener al menos 5 caracteres.</Text>
-                )
-            }
-            <Text style={styles.label}>Descripción</Text>
+            <View style={styles.container}>
+                <Text style={styles.label}>Titulo</Text>
+                <TextInput style={[styles.input, titleError && styles.errorInput]}
+                    placeholder='Titulo de la tarea'
+                    value={title}
+                    onChangeText={setTitle}
+                    onBlur={() => setTouchedTitle(true)}
+                    autoCapitalize='sentences'
+                    returnKeyType='next'
+                />
+                {
+                    titleError && (
+                        <Text style={styles.error}>El titulo debe tener al menos 3 caracteres.</Text>
+                    )
+                }
+                <Text style={styles.label}>Descripción</Text>
 
-            <TextInput
-                style={[styles.input, styles.description, descriptionError && styles.errorInput,]}
-                placeholder="Descripción"
-                value={description}
-                onChangeText={setDescription}
-                onBlur={() => setTouchedDescription(true)}
-                autoCapitalize="sentences"
-                multiline
-            />
+                <TextInput
+                    style={[styles.input, styles.description, descriptionError && styles.errorInput,]}
+                    placeholder="Descripción"
+                    value={description}
+                    onChangeText={setDescription}
+                    onBlur={() => setTouchedDescription(true)}
+                    autoCapitalize="sentences"
+                    multiline
+                />
 
-            {
-                descriptionError && (
-                    <Text style={styles.error}>La descripción debe tener al menos 10 caracteres.</Text>
-                )
-            }
-            <Text style={styles.label}>Categoría</Text>
+                {
+                    descriptionError && (
+                        <Text style={styles.error}>La descripción debe tener al menos 10 caracteres.</Text>
+                    )
+                }
+                <Text style={styles.label}>Categoría</Text>
 
-            <View style={styles.categories}>
-                {['Trabajo', 'Estudio', 'Personal'].map((item) => (
-                    <TouchableOpacity
-                        key={item}
-                        style={[
-                            styles.category,
+                <View style={styles.categories}>
+                    {['Trabajo', 'Estudio', 'Personal'].map((item) => (
+                        <TouchableOpacity
+                            key={item}
+                            style={[
+                                styles.category,
 
-                            category === item && styles.selectedCategory,
-                        ]}
-                        onPress={() => setCategory(item)}
-                    >
-                        <Text>{item}</Text>
-                    </TouchableOpacity>
-                ))}
+                                category === item && styles.selectedCategory,
+                            ]}
+                            onPress={() => setCategory(item)}
+                        >
+                            <Text>{item}</Text>
+                        </TouchableOpacity>
+                    ))}
 
+                </View>
+                {
+
+                }
+                <TouchableOpacity
+                    style={[styles.button, formError && styles.disableButton]}
+                    onPress={handleAddTask}
+                    disabled={formError}
+                >
+                    <Text style={styles.buttonText}>Guardar</Text>
+                </TouchableOpacity>
             </View>
-            {
-
-            }
-            <TouchableOpacity
-                style={[styles.button, formError && styles.disableButton]}
-                onPress={handleAddTask}
-                disabled={formError}
-            >
-                <Text style={styles.buttonText}>Guardar</Text>
-            </TouchableOpacity>
         </KeyboardAvoidingView>
     );
 }
@@ -105,11 +108,14 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 20,
         justifyContent: 'center',
+        backgroundColor: COLORS.primary,
     },
     title: {
+        padding: 20,
         fontSize: 26,
         fontWeight: 'bold',
-        marginBottom: 25,
+        backgroundColor: 'black',
+        color: COLORS.textLight,
     },
     label: {
         fontSize: 16,
@@ -123,6 +129,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         padding: 12,
         fontSize: 16,
+        backgroundColor: 'white',
     },
     description: {
         height: 100,
@@ -141,6 +148,7 @@ const styles = StyleSheet.create({
     },
     category: {
         flex: 1,
+        backgroundColor: COLORS.secundary,
         padding: 12,
         alignItems: 'center',
         borderWidth: 1,
@@ -153,7 +161,7 @@ const styles = StyleSheet.create({
     button: {
         marginTop: 25,
         padding: 15,
-        backgroundColor: 'blue',
+        backgroundColor: 'black',
         borderRadius: 8,
         alignItems: 'center',
     },
