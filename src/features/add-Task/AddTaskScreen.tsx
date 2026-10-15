@@ -1,5 +1,5 @@
 import { View } from 'react-native'
-import TaskForm from '../../components/TaskForm/TaskForm'
+import TaskForm from '../../features/add-Task/TaskForm'
 
 export default function AddTaskScreen() {
     return (
