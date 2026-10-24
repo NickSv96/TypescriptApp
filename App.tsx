@@ -1,9 +1,9 @@
 import { StyleSheet, View, Text } from 'react-native';
-import AddTaskScreen from './src/screens/AddTaskScreen/AddTaskScreen';
+import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 export default function App() {
   return (
     <View>
-      <AddTaskScreen />
+      <HomeScreen />
     </View>
   );
 }
