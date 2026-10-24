@@ -1,5 +1,5 @@
 import { StyleSheet, View, Text } from 'react-native';
-import AddTaskScreen from './src/features/add-Task/AddTaskScreen';
+import AddTaskScreen from './src/screens/AddTaskScreen/AddTaskScreen';
 export default function App() {
   return (
     <View>
