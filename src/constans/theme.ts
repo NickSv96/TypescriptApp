@@ -1,6 +1,6 @@
 const COLORS = {
     primary: "#00BCD4",
-    background: "",
+    background: "#126570",
     card: "#000000",
     text: "black",
     textLight: "white",
